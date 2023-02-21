@@ -8,11 +8,13 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
+        <p>Hey 👋, I'm Prathamesh,
+          I write code and love making useful products which solves real world problems. <br />In my free time I read books, watch documentaries and click some pictures🐬.</p>
         <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+          Connect with me on{' '}
+          <a href="https://peerlist.io/prathamesh" target="_blank">Peerlist</a>
         </p>
       </section>
     </Layout>
