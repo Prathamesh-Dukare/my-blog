@@ -1,5 +1,8 @@
 import Layout from '../../components/layout';
 import { getAllPostIds, getPostData } from '../../utils/posts';
+import Head from 'next/head';
+import Date from '../../components/date';
+import utilStyles from '../../styles/utils.module.css';
 
 export async function getStaticPaths() {
     // Return a list of possible value for id
@@ -11,8 +14,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+    console.log(params, 'params')
     // Fetch necessary data for the blog post using params.id
-    let postData = getPostData(params.id);
+    let postData = await getPostData(params.id);
     return {
         props: {
             postData,
@@ -21,12 +25,18 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post({ postData }) {
-    return <Layout>
-        {postData.title}
-        <br />
-        {postData.id}
-        <br />
-        {postData.date}
-    </Layout>;
-}
-
+    return (
+      <Layout>
+        <Head>
+          <title>{postData.title}</title>
+        </Head>
+        <article>
+          <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+          <div className={utilStyles.lightText}>
+            <Date dateString={postData.date} />
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </article>
+      </Layout>
+    );
+  }
