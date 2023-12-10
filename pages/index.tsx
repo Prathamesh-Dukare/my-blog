@@ -32,9 +32,8 @@ export default function Home({ allPostsData }: PostDateType) {
 
       <section className={utilStyles.headingMd}>
         <p>
-          Hey 👋, I'm Prathamesh, I write code and love making useful products
-          which solves real world problems. <br />
-          In my free time I read books, watch documentaries and click some
+          Hey 👋, I'm Prathamesh, I write code.
+          In free time I read books, watch documentaries and click some
           pictures🐬.
         </p>
         <p>
